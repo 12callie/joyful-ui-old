@@ -1,12 +1,11 @@
 <template>
-  <TopNav />
-  <a href="#">1</a>
-  <h2>111</h2>
+  <router-view />
+  <hr />
+  <router-link to="/home">首页</router-link>
+  <router-link to="/doc">文档</router-link>
 </template>
 
 <script setup>
 import TopNav from "./components/TopNav.vue";
 </script>
 
-<style scoped>
-</style>
