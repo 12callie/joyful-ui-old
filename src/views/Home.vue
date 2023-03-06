@@ -6,7 +6,7 @@
     <p>有点意思</p>
     <div class="actions">
       <button>换个主题</button>
-      <router-link to="/doc/get-started"><button>开始使用</button></router-link>
+      <router-link to="/doc/install"><button>开始使用</button></router-link>
     </div>
   </div>
 </template>

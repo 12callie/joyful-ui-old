@@ -12,8 +12,13 @@
     <ol class="menu-content" v-if="menuVisible">
       <li>深色</li>
       <li><router-link to="/">首页</router-link></li>
-      <li><router-link to="/doc">文档</router-link></li>
-      <li><router-link to="/doc">组件</router-link></li>
+      <li>文档</li>
+      <li><router-link to="/doc/intro">介绍</router-link></li>
+      <li><router-link to="/doc/install">安装</router-link></li>
+      <li><router-link to="/doc/usage">在 SFC 中使用</router-link></li>
+      <li>组件</li>
+      <li><router-link to="/components/button">按钮 Button</router-link></li>
+
       <li><a href="https://github.com">GitHub</a></li>
     </ol>
   </div>
