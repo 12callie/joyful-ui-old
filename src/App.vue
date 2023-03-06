@@ -1,8 +1,6 @@
 <template>
+  <top-nav />
   <router-view />
-  <hr />
-  <router-link to="/home">首页</router-link>
-  <router-link to="/doc">文档</router-link>
 </template>
 
 <script setup>
