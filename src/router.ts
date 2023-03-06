@@ -4,7 +4,8 @@ import Doc from "./views/Doc.vue";
 export const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/home', component: Home },
+        { path: '/', component: Home },
+        { path: '/home', redirect: '/' },
         { path: '/doc', component: Doc }
     ]
 });

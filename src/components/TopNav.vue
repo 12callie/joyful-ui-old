@@ -1,7 +1,9 @@
 <template>
   <div class="top-nav">
     <div class="nav-content">
-      <img class="logo" src="../assets/img/logo.png" alt="logo" />
+      <router-link to="/" class="logo"
+        ><img src="../assets/img/logo.png" alt="logo"
+      /></router-link>
       <svg class="icon" @click="toggleMenu">
         <use xlink:href="#icon-menu"></use>
       </svg>
@@ -26,7 +28,6 @@ const toggleMenu = () => {
 };
 </script>
 
-
 <style lang="scss" scoped>
 @import "../style.scss";
 .top-nav {
@@ -37,10 +38,15 @@ const toggleMenu = () => {
     justify-content: center;
     align-items: center;
     padding: 0 16px;
+    position: relative;
 
-    .logo {
-      margin: 0 auto;
+    img {
       height: 64px;
+    }
+    svg {
+      position: absolute;
+      right: 16px;
+      top: auto;
     }
   }
 }

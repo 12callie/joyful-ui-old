@@ -1,4 +1,7 @@
 $border-color: rgb(239, 239, 245);
+$theme-color: #0a7558;
+$color: rgb(51, 54, 57);
+$title-color: rgb(31, 34, 37);
 
 *,
 *::after,
@@ -36,8 +39,8 @@ h6 {
 body {
   line-height: 1.5;
   font-size: 16px;
+  color: $color;
   font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
-  color: rgb(51, 54, 57);
 }
 
 .icon {
