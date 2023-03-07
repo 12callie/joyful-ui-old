@@ -231,17 +231,7 @@ $error-color: #d03050;
     border: 2px solid $theme-color;
     border-top-color: transparent;
     border-radius: 100%;
-    animation: j-spin 1s infinite linear;
-  }
-}
-
-@keyframes j-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
+    animation: j-loading-spin 1s infinite linear;
   }
 }
 </style>
