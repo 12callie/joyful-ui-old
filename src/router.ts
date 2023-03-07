@@ -4,6 +4,7 @@ import Intro from "./views/Intro.vue";
 import Install from "./views/Install.vue";
 import Usage from "./views/Usage.vue";
 import ButtonDemo from "./views/ButtonDemo.vue";
+import SwitchDemo from "./views/SwitchDemo.vue";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -24,6 +25,7 @@ export const router = createRouter({
       children: [
         { path: "", redirect: "/components/button" },
         { path: "button", component: ButtonDemo },
+        { path: "switch", component: SwitchDemo },
       ],
     },
   ],

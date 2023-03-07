@@ -79,13 +79,6 @@ function handleClick() {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/styles/common.scss";
-h1 {
-  font-size: $first-h;
-}
-h2 {
-  font-size: $second-h;
-}
 .button-demos {
   padding: 32px 24px 56px 56px;
 }

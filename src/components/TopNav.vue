@@ -18,6 +18,7 @@
       <li><router-link to="/doc/usage">在 SFC 中使用</router-link></li>
       <li>组件</li>
       <li><router-link to="/components/button">按钮 Button</router-link></li>
+      <li><router-link to="/components/switch">开关 Switch</router-link></li>
 
       <li><a href="https://github.com">GitHub</a></li>
     </ol>
