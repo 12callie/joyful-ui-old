@@ -1,5 +1,6 @@
 <template>
   <button class="j-button" :class="classes" :disabled="disabled">
+    <span class="j-button-loadingIndicator" v-if="loading"></span>
     <slot />
   </button>
 </template>
@@ -27,6 +28,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  loading: {
+    type: Boolean,
+    default: false,
+  },
 });
 const classes = computed(() => {
   return {
@@ -34,6 +39,7 @@ const classes = computed(() => {
     [`j-button-dashed`]: props.dashed,
     [`j-button-size-${props.size}`]: props.size,
     [`j-button-text`]: props.text,
+    [`j-button-loading`]: props.loading,
   };
 });
 </script>
@@ -216,6 +222,26 @@ $error-color: #d03050;
       border-color: rgb(224, 224, 230);
       color: rgb(224, 224, 230);
     }
+  }
+
+  .j-button-loadingIndicator {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    border: 2px solid $theme-color;
+    border-top-color: transparent;
+    border-radius: 100%;
+    animation: j-spin 1s infinite linear;
+  }
+}
+
+@keyframes j-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 </style>

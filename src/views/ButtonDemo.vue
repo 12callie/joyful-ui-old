@@ -60,14 +60,22 @@
     <div>
       <div>加载中</div>
       <p>按钮有加载状态。</p>
-      <Button>点我</Button>
+      <Button :loading="loadingRef" @click="handleClick">点我</Button>
     </div>
     <hr />
   </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from "vue";
 import Button from "../lib/Button.vue";
+const loadingRef = ref(false);
+function handleClick() {
+  loadingRef.value = true;
+  setTimeout(() => {
+    loadingRef.value = false;
+  }, 2000);
+}
 </script>
 
 <style lang="scss" scoped>
