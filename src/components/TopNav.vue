@@ -34,7 +34,7 @@ const toggleMenu = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "../style.scss";
+@import "../assets/styles/common.scss";
 .top-nav {
   border-bottom: 1px solid $border-color;
   .nav-content {
@@ -44,10 +44,15 @@ const toggleMenu = () => {
     align-items: center;
     padding: 0 16px;
     position: relative;
-
-    img {
-      height: 64px;
+    .logo {
+      &:focus {
+        outline-style: none;
+      }
+      img {
+        height: 64px;
+      }
     }
+
     svg {
       position: absolute;
       right: 16px;

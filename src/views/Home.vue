@@ -5,16 +5,18 @@
     <p>提供了一些常用的组件，使用 TypeScript</p>
     <p>有点意思</p>
     <div class="actions">
-      <button>换个主题</button>
-      <router-link to="/doc/install"><button>开始使用</button></router-link>
+      <Button>换个主题</Button>
+      <router-link to="/doc/install"><Button>开始使用</Button></router-link>
     </div>
   </div>
 </template>
 
-<script lang="ts"></script>
+<script lang="ts" setup>
+import Button from "../lib/Button.vue";
+</script>
 
 <style lang="scss" scoped>
-@import "../style.scss";
+@import "../assets/styles/common.scss";
 .content {
   padding: 64px 16px 0;
   h1 {

@@ -1,8 +1,4 @@
-$border-color: rgb(239, 239, 245);
-$theme-color: #0a7558;
-$color: rgb(51, 54, 57);
-$title-color: rgb(31, 34, 37);
-
+@import "./assets/styles/common.scss";
 *,
 *::after,
 *::before {
@@ -33,7 +29,11 @@ h4,
 h5,
 h6 {
   font-weight: normal;
-  color: rgb(31, 34, 37);
+  color: $title-color;
+}
+code{
+  background: rgb(244, 244, 248);
+  font-family: Consolas, "Courier New", Courier, monospace;
 }
 
 body {
