@@ -1,5 +1,5 @@
 <template>
-  <button v-if="loading" class="j-switch" :class="classes" disabled ref="sss">
+  <button v-if="loading" class="j-switch" :class="classes" disabled>
     <span class="j-switch-circle"
       ><span v-if="loading" class="j-switch-loadingIndicator"></span
     ></span>
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, defineEmits, computed, ref } from "vue";
+import { defineProps, defineEmits, computed } from "vue";
 const props = defineProps({
   value: {
     type: Boolean,
@@ -32,25 +32,22 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  square: {
+    type: Boolean,
+    default: false,
+  },
 });
 const emit = defineEmits(["update:value"]);
 const classes = computed(() => {
   return {
     [`j-switch-checked`]: props.value,
     [`j-switch-loading`]: props.loading,
+    [`j-switch-square`]: props.square,
   };
 });
 const toggleSwitch = () => {
   emit("update:value", !props.value);
 };
-const loadingSwitch = ref(null);
-const xxx = computed(() => {
-  console.log(2);
-  if (props.loading && props.value) {
-    console.log(1);
-    console.log(loadingSwitch.value);
-  }
-});
 </script>
 
 <style lang="scss">
@@ -106,6 +103,12 @@ $theme-color: #18a058;
       border-top-color: transparent;
       border-radius: 100%;
       animation: j-loading-spin 1s infinite linear;
+    }
+  }
+  &.j-switch-square {
+    border-radius: 4px;
+    .j-switch-circle {
+      border-radius: 4px;
     }
   }
 }

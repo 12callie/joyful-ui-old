@@ -9,12 +9,13 @@
   <hr />
   <div>
     <div>禁用</div>
-    <p>开关可以被禁用。</p>
+    <p>禁用状态下开关不可点击。</p>
     <Switch disabled></Switch>
   </div>
   <hr />
   <div>
     <div>加载中</div>
+    <p>加载状态下开关不可点击。</p>
     <Switch loading></Switch>
     <Switch
       :value="active"
@@ -23,6 +24,11 @@
     ></Switch>
   </div>
   <hr />
+  <div>
+    <div>形状</div>
+    <p>开关可以设为方形。</p>
+    <Switch :square="true" v-model:value="active"></Switch>
+  </div>
 </template>
 
 <script lang="ts" setup>
