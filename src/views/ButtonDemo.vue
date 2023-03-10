@@ -78,8 +78,4 @@ function handleClick() {
 }
 </script>
 
-<style lang="scss" scoped>
-.button-demos {
-  padding: 32px 24px 56px 56px;
-}
-</style>
+<style lang="scss" scoped></style>
