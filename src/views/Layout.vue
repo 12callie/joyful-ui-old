@@ -17,7 +17,6 @@ import Aside from "../components/Aside.vue";
 
 <style lang="scss" scoped>
 .layout {
-  border: 1px solid red;
   height: 100vh;
 
   display: flex;
