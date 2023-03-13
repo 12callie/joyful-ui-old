@@ -5,7 +5,12 @@
   <div>
     <div>基础用法</div>
     <Button @click="openDialog">打开对话框</Button>
-    <Dialog v-model:dialogVisible="dialogVisible" :ok="f1" :cancel="f2" />
+    <Dialog
+      v-model:dialogVisible="dialogVisible"
+      :closeOnClickOverlay="false"
+      :ok="f1"
+      :cancel="f2"
+    />
   </div>
   <hr />
 </template>
