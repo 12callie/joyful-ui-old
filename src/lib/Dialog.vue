@@ -6,11 +6,23 @@
         class="j-dialog-overlay"
         @click="onClickOverlay"
       >
-        <div class="j-dialog-wrapper">
+        <div
+          class="j-dialog-wrapper"
+          :class="{ [`j-dialog-theme-${theme}`]: theme }"
+        >
           <header>
-            <svg class="icon j-dialog-svg-warn">
-              <use xlink:href="#icon-warn"></use>
-            </svg>
+            <div class="j-dialog-svg">
+              <svg class="icon" v-if="theme === 'confirm'">
+                <use xlink:href="#icon-warn"></use>
+              </svg>
+              <svg class="icon" v-if="theme === 'success'">
+                <use xlink:href="#icon-success"></use>
+              </svg>
+              <svg class="icon" v-if="theme === 'error'">
+                <use xlink:href="#icon-close"></use>
+              </svg>
+            </div>
+
             <span>{{ title }}</span>
             <svg class="icon j-dialog-svg-close" @click="closeDialog">
               <use xlink:href="#icon-close"></use>
@@ -18,10 +30,13 @@
           </header>
           <main>{{ content }}</main>
           <footer>
-            <Button @click="cancel">
+            <Button @click="cancel" v-if="theme === 'confirm'">
               {{ negativeText }}
             </Button>
-            <Button theme="primary" @click="ok">
+            <Button theme="error" @click="ok" v-if="theme === 'error'">
+              {{ positiveText }}
+            </Button>
+            <Button theme="primary" @click="ok" v-else>
               {{ positiveText }}
             </Button>
           </footer>
@@ -35,6 +50,10 @@
 import Button from "./Button.vue";
 import { defineProps } from "vue";
 const props = defineProps({
+  theme: {
+    type: String,
+    default: "confirm",
+  },
   dialogVisible: {
     type: Boolean,
     default: false,
@@ -88,7 +107,6 @@ const ok = () => {
 
 <style lang="scss" scoped>
 $theme-color: #18a058;
-$warning-color: #f0a020;
 $error-color: #d03050;
 
 .j-dialog-overlay {
@@ -112,8 +130,8 @@ $error-color: #d03050;
     box-shadow: 0 0 5px fade_out(#999, 0.1);
     z-index: 11;
     .icon {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
     }
     > header {
       padding: 12px 16px;
@@ -127,16 +145,20 @@ $error-color: #d03050;
         margin-left: 8px;
         margin-right: auto;
       }
-      > .j-dialog-svg-warn {
+      > .j-dialog-svg {
         flex-shrink: 0;
         background: $theme-color;
         padding: 4px;
         border-radius: 50%;
         color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       > .j-dialog-svg-close {
         flex-shrink: 0;
-
+        width: 24px;
+        height: 24px;
         cursor: pointer;
       }
     }
@@ -153,6 +175,14 @@ $error-color: #d03050;
     > footer {
       padding: 12px 16px;
       text-align: right;
+    }
+
+    &.j-dialog-theme-success {
+    }
+    &.j-dialog-theme-error {
+      .j-dialog-svg {
+        background: $error-color;
+      }
     }
   }
 }

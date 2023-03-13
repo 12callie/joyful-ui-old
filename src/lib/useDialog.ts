@@ -3,6 +3,7 @@ import { createApp, h } from "vue";
 
 export const useDialog = (options) => {
   const {
+    theme,
     title,
     content,
     negativeText,
@@ -21,6 +22,7 @@ export const useDialog = (options) => {
     render() {
       return h(Dialog, {
         dialogVisible: true,
+        theme,
         title,
         content,
         negativeText,

@@ -16,15 +16,18 @@
       positive-text="好的"
     />
   </div>
+
   <hr />
   <div>
-    <div>点击遮罩</div>
-    <p>我觉得用户应该聪明到点遮罩没用的时候就去点确认了。</p>
+    <div>使用 useDialog</div>
+    <p>调用一个函数就可以打开对话框了，是不是很简洁</p>
+    <Button @click="showDialog">打开对话框</Button>
   </div>
   <hr />
   <div>
-    <div>使用 useDialog 打开对话框</div>
-    <Button @click="showDialog">打开对话框</Button>
+    <div>成功 / 错误</div>
+    <Button @click="handleSuccessClick">成功</Button>
+    <Button @click="handleErrorClick">错误</Button>
   </div>
 </template>
 
@@ -54,6 +57,28 @@ const showDialog = () => {
     },
     cancel: () => {
       console.log("cancel2");
+    },
+  });
+};
+const handleSuccessClick = () => {
+  useDialog({
+    theme: "success",
+    title: "成功",
+    content: "厉害",
+    positiveText: "哇",
+    ok: () => {
+      console.log("哇");
+    },
+  });
+};
+const handleErrorClick = () => {
+  useDialog({
+    theme: "error",
+    title: "错误",
+    content: "错了",
+    positiveText: "啊",
+    ok: () => {
+      console.log("啊");
     },
   });
 };
