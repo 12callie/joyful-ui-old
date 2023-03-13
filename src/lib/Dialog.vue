@@ -1,28 +1,34 @@
 <template>
-  <Transition name="j-dialog-transition">
-    <div v-if="dialogVisible" class="j-dialog-overlay" @click="onClickOverlay">
-      <div class="j-dialog-wrapper">
-        <header>
-          <svg class="icon j-dialog-svg-warn">
-            <use xlink:href="#icon-warn"></use>
-          </svg>
-          <span>{{ title }}</span>
-          <svg class="icon j-dialog-svg-close" @click="closeDialog">
-            <use xlink:href="#icon-close"></use>
-          </svg>
-        </header>
-        <main>{{ content }}</main>
-        <footer>
-          <Button @click="cancel">
-            {{ negativeText }}
-          </Button>
-          <Button theme="primary" @click="ok">
-            {{ positiveText }}
-          </Button>
-        </footer>
+  <Teleport to="body">
+    <Transition name="j-dialog-transition">
+      <div
+        v-if="dialogVisible"
+        class="j-dialog-overlay"
+        @click="onClickOverlay"
+      >
+        <div class="j-dialog-wrapper">
+          <header>
+            <svg class="icon j-dialog-svg-warn">
+              <use xlink:href="#icon-warn"></use>
+            </svg>
+            <span>{{ title }}</span>
+            <svg class="icon j-dialog-svg-close" @click="closeDialog">
+              <use xlink:href="#icon-close"></use>
+            </svg>
+          </header>
+          <main>{{ content }}</main>
+          <footer>
+            <Button @click="cancel">
+              {{ negativeText }}
+            </Button>
+            <Button theme="primary" @click="ok">
+              {{ positiveText }}
+            </Button>
+          </footer>
+        </div>
       </div>
-    </div>
-  </Transition>
+    </Transition>
+  </Teleport>
 </template>
 
 <script lang="ts" setup>
