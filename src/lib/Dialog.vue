@@ -1,21 +1,23 @@
 <template>
-  <div class="j-dialog-overlay"></div>
-  <div class="j-dialog-wrapper">
-    <header>
-      <svg class="icon j-dialog-svg-warn">
-        <use xlink:href="#icon-warn"></use>
-      </svg>
-      <span>确认</span>
-      <svg class="icon j-dialog-svg-close">
-        <use xlink:href="#icon-close"></use>
-      </svg>
-    </header>
-    <main>确定吗？</main>
-    <footer>
-      <Button>取消</Button>
-      <Button theme="primary">确定</Button>
-    </footer>
-  </div>
+  <template v-if="dialogVisible">
+    <div class="j-dialog-overlay" @click="closeDialog"></div>
+    <div class="j-dialog-wrapper">
+      <header>
+        <svg class="icon j-dialog-svg-warn">
+          <use xlink:href="#icon-warn"></use>
+        </svg>
+        <span>确认</span>
+        <svg class="icon j-dialog-svg-close" @click="closeDialog">
+          <use xlink:href="#icon-close"></use>
+        </svg>
+      </header>
+      <main>确定吗？</main>
+      <footer>
+        <Button @click="cancel">取消</Button>
+        <Button theme="primary" @click="ok">确定</Button>
+      </footer>
+    </div>
+  </template>
 </template>
 
 <script lang="ts" setup>
@@ -26,7 +28,26 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  ok: {
+    type: Function,
+  },
+  cancel: {
+    type: Function,
+  },
 });
+const emit = defineEmits(["update:dialogVisible"]);
+const closeDialog = () => {
+  emit("update:dialogVisible", false);
+};
+const cancel = () => {
+  props.cancel?.();
+  closeDialog();
+};
+const ok = () => {
+  if (props.ok?.() !== false) {
+    closeDialog();
+  }
+};
 </script>
 
 <style lang="scss" scoped>

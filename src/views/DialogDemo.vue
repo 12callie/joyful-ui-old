@@ -5,7 +5,7 @@
   <div>
     <div>基础用法</div>
     <Button @click="openDialog">打开对话框</Button>
-    <Dialog v-model:dialogVisible="dialogVisible" />
+    <Dialog v-model:dialogVisible="dialogVisible" :ok="f1" :cancel="f2" />
   </div>
   <hr />
 </template>
@@ -17,6 +17,13 @@ import Dialog from "../lib/Dialog.vue";
 const dialogVisible = ref(false);
 const openDialog = () => {
   dialogVisible.value = true;
+};
+const f1 = () => {
+  console.log("ok");
+  return false;
+};
+const f2 = () => {
+  console.log("cancel");
 };
 </script>
 
