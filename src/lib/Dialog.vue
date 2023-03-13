@@ -6,12 +6,12 @@
           <svg class="icon j-dialog-svg-warn">
             <use xlink:href="#icon-warn"></use>
           </svg>
-          <span>确认</span>
+          <span>{{ title }}</span>
           <svg class="icon j-dialog-svg-close" @click="closeDialog">
             <use xlink:href="#icon-close"></use>
           </svg>
         </header>
-        <main>确定吗？</main>
+        <main>{{ content }}</main>
         <footer>
           <Button @click="cancel">取消</Button>
           <Button theme="primary" @click="ok">确定</Button>
@@ -38,6 +38,14 @@ const props = defineProps({
   },
   cancel: {
     type: Function,
+  },
+  title: {
+    type: String,
+    default: "确认",
+  },
+  content: {
+    type: String,
+    default: "是否确定？",
   },
 });
 const emit = defineEmits(["update:dialogVisible"]);

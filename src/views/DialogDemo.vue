@@ -10,6 +10,8 @@
       :closeOnClickOverlay="false"
       :ok="f1"
       :cancel="f2"
+      title="你好"
+      content="是吗"
     />
   </div>
   <hr />
