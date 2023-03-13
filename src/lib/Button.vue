@@ -1,5 +1,5 @@
 <template>
-  <button class="j-button" :class="classes" :disabled="disabled">
+  <button class="j-button" :class="classes" :disabled="disabled || loading">
     <span class="j-button-loadingIndicator" v-if="loading"></span>
     <slot />
   </button>
@@ -224,13 +224,25 @@ $error-color: #d03050;
     }
   }
 
+  &.j-button-loading {
+    cursor: wait;
+    border-color: lighten($theme-color, 10%);
+    color: lighten($theme-color, 10%);
+    &[disabled] {
+      &:hover,
+      &:focus {
+        border-color: lighten($theme-color, 10%);
+        color: lighten($theme-color, 10%);
+      }
+    }
+  }
   .j-button-loadingIndicator {
     width: 14px;
     height: 14px;
     margin-right: 4px;
     border: 2px solid $theme-color;
     border-top-color: transparent;
-    border-radius: 100%;
+    border-radius: 50%;
     animation: j-loading-spin 1s infinite linear;
   }
 }

@@ -60,6 +60,7 @@
     <div>
       <div>加载中</div>
       <p>按钮有加载状态。</p>
+      <Button class="j-loadingButton" loading>加载中</Button>
       <Button :loading="loadingRef" @click="handleClick">点我</Button>
     </div>
     <hr />
@@ -78,4 +79,8 @@ function handleClick() {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.j-loadingButton {
+  float: left;
+}
+</style>
