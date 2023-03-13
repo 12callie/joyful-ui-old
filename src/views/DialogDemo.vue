@@ -22,12 +22,18 @@
     <p>我觉得用户应该聪明到点遮罩没用的时候就去点确认了。</p>
   </div>
   <hr />
+  <div>
+    <div>使用 useDialog 打开对话框</div>
+    <Button @click="showDialog">打开对话框</Button>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
 import Button from "../lib/Button.vue";
 import Dialog from "../lib/Dialog.vue";
+import { useDialog } from "../lib/useDialog";
+
 const dialogVisible = ref(false);
 const openDialog = () => {
   dialogVisible.value = true;
@@ -38,6 +44,18 @@ const f1 = () => {
 };
 const f2 = () => {
   console.log("cancel");
+};
+const showDialog = () => {
+  useDialog({
+    title: "提示2",
+    content: "确定？2",
+    ok: () => {
+      console.log("ok2");
+    },
+    cancel: () => {
+      console.log("cancel2");
+    },
+  });
 };
 </script>
 
