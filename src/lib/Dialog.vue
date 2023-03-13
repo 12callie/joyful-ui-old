@@ -13,8 +13,12 @@
         </header>
         <main>{{ content }}</main>
         <footer>
-          <Button @click="cancel">取消</Button>
-          <Button theme="primary" @click="ok">确定</Button>
+          <Button @click="cancel">
+            {{ negativeText }}
+          </Button>
+          <Button theme="primary" @click="ok">
+            {{ positiveText }}
+          </Button>
         </footer>
       </div>
     </div>
@@ -46,6 +50,14 @@ const props = defineProps({
   content: {
     type: String,
     default: "是否确定？",
+  },
+  negativeText: {
+    type: String,
+    default: "取消",
+  },
+  positiveText: {
+    type: String,
+    default: "确认",
   },
 });
 const emit = defineEmits(["update:dialogVisible"]);
@@ -88,8 +100,8 @@ $error-color: #d03050;
     top: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
-    min-width: 24em;
-    max-width: 90%;
+    width: 75%;
+    max-height: 90%;
     border-radius: 4px;
     box-shadow: 0 0 5px fade_out(#999, 0.1);
     z-index: 11;
@@ -105,22 +117,31 @@ $error-color: #d03050;
       font-size: 18px;
 
       > span {
+        flex-grow: 1;
         margin-left: 8px;
         margin-right: auto;
       }
       > .j-dialog-svg-warn {
+        flex-shrink: 0;
         background: $theme-color;
         padding: 4px;
         border-radius: 50%;
         color: #fff;
       }
       > .j-dialog-svg-close {
+        flex-shrink: 0;
+
         cursor: pointer;
       }
     }
 
     > main {
-      padding: 12px 16px;
+      margin: 12px 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
     }
 
     > footer {

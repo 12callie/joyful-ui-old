@@ -10,9 +10,16 @@
       :closeOnClickOverlay="false"
       :ok="f1"
       :cancel="f2"
-      title="你好"
-      content="是吗"
+      title="标题"
+      content="你确定"
+      negative-text="取消"
+      positive-text="好的"
     />
+  </div>
+  <hr />
+  <div>
+    <div>点击遮罩</div>
+    <p>我觉得用户应该聪明到点遮罩没用的时候就去点确认了。</p>
   </div>
   <hr />
 </template>
