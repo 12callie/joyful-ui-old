@@ -23,7 +23,7 @@ import TopNav from "../components/TopNav.vue";
 <style lang="scss" scoped>
 @import "../assets/styles/common.scss";
 .content {
-  padding: 64px 16px 0;
+  padding: 64px 24px 0;
   h1 {
     font-size: 64px;
     font-weight: bold;

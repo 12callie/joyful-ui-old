@@ -6,6 +6,7 @@ import Install from "./views/Install.vue";
 import Usage from "./views/Usage.vue";
 import ButtonDemo from "./views/ButtonDemo.vue";
 import SwitchDemo from "./views/SwitchDemo.vue";
+import DialogDemo from "./views/DialogDemo.vue";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -31,6 +32,7 @@ export const router = createRouter({
             { path: "", redirect: "/joyful/components/button" },
             { path: "button", component: ButtonDemo },
             { path: "switch", component: SwitchDemo },
+            { path: "dialog", component: DialogDemo },
           ],
         },
       ],

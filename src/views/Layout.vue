@@ -22,6 +22,11 @@
               >开关 Switch</router-link
             >
           </li>
+          <li>
+            <router-link to="/joyful/components/dialog"
+              >对话框 Dialog</router-link
+            >
+          </li>
         </ol>
         <div class="aside-toggle-button" @click="toggle" ref="svgAsideToggle">
           <svg class="icon">
