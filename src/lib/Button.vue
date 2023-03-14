@@ -1,5 +1,6 @@
 <template>
   <button class="j-button" :class="classes" :disabled="disabled || loading">
+    <span></span>
     <span class="j-button-loadingIndicator" v-if="loading"></span>
     <slot />
   </button>

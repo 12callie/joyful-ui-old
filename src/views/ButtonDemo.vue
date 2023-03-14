@@ -78,9 +78,3 @@ function handleClick() {
   }, 2000);
 }
 </script>
-
-<style lang="scss" scoped>
-.j-loadingButton {
-  float: left;
-}
-</style>
