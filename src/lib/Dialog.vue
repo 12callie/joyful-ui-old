@@ -125,6 +125,7 @@ $error-color: #d03050;
     transform: translate(-50%, -50%);
     background: #fff;
     width: 75%;
+    max-width: 420px;
     max-height: 90%;
     border-radius: 4px;
     box-shadow: 0 0 5px fade_out(#999, 0.1);
