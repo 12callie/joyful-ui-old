@@ -83,5 +83,3 @@ const handleErrorClick = () => {
   });
 };
 </script>
-
-<style lang="scss" scoped></style>

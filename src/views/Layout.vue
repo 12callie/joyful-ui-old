@@ -27,6 +27,9 @@
               >对话框 Dialog</router-link
             >
           </li>
+          <li>
+            <router-link to="/joyful/components/tabs">标签页 Tabs</router-link>
+          </li>
         </ol>
         <div class="aside-toggle-button" @click="toggle" ref="svgAsideToggle">
           <svg class="icon">

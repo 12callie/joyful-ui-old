@@ -105,7 +105,7 @@ const ok = () => {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $theme-color: #18a058;
 $error-color: #d03050;
 
