@@ -20,6 +20,9 @@ a {
     cursor: pointer;
     text-decoration: underline;
   }
+  &:focus{
+    outline: none;
+  }
 }
 
 h1,

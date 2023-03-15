@@ -1,7 +1,13 @@
 <template>
   <div class="j-tabs">
     <div class="j-tabs-nav">
-      <div class="j-tabs-nav-item" v-for="(t, index) in titles" :key="index">
+      <div
+        class="j-tabs-nav-item"
+        :class="{ selected: selected === t }"
+        v-for="(t, index) in titles"
+        :key="index"
+        @click="selectTitle(t)"
+      >
         {{ t }}
       </div>
     </div>
@@ -14,6 +20,11 @@
 <script lang="ts">
 import Tab from "./Tab.vue";
 export default {
+  props: {
+    selected: {
+      type: String,
+    },
+  },
   setup(props, context) {
     const defaults = context.slots.default();
     defaults.forEach((i) => {
@@ -22,7 +33,10 @@ export default {
       }
     });
     const titles = defaults.map((i) => i.props.title);
-    return { defaults, titles };
+    const selectTitle = (newTitle: string) => {
+      context.emit("update:selected", newTitle);
+    };
+    return { defaults, titles, selectTitle };
   },
 };
 </script>
@@ -43,6 +57,10 @@ $theme-color: #18a058;
       padding: 8px 0;
       margin: 0 16px;
       cursor: pointer;
+      &:hover,
+      &.selected {
+        color: $theme-color;
+      }
     }
   }
   &-content {
