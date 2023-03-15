@@ -12,13 +12,14 @@
       </div>
     </div>
     <div class="j-tabs-content">
-      <component v-for="(c, index) in defaults" :key="index" :is="c" />
+      <component :is="current" :key="current.props.title" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Tab from "./Tab.vue";
+import { computed } from "vue";
 export default {
   props: {
     selected: {
@@ -36,7 +37,12 @@ export default {
     const selectTitle = (newTitle: string) => {
       context.emit("update:selected", newTitle);
     };
-    return { defaults, titles, selectTitle };
+    const current = computed(() => {
+      return defaults.find((i) => {
+        return i.props.title === props.selected;
+      });
+    });
+    return { defaults, titles, selectTitle, current };
   },
 };
 </script>
