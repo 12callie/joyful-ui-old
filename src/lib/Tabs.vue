@@ -10,6 +10,7 @@
       >
         {{ t }}
       </div>
+      <div class="j-tabs-nav-indicator"></div>
     </div>
     <div class="j-tabs-content">
       <component :is="current" :key="current.props.title" />
@@ -55,6 +56,7 @@ $theme-color: #18a058;
     border-bottom: 1px solid $border-color;
     display: flex;
     flex-direction: row;
+    position: relative;
 
     &-item {
       &:nth-child(1) {
@@ -67,6 +69,15 @@ $theme-color: #18a058;
       &.selected {
         color: $theme-color;
       }
+    }
+
+    &-indicator {
+      width: 34px;
+      height: 3px;
+      background: $theme-color;
+      position: absolute;
+      left: 0;
+      bottom: -1px;
     }
   }
   &-content {
