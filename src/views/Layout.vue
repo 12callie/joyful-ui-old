@@ -2,7 +2,7 @@
   <div class="layout">
     <top-nav class="nav" />
     <div class="content">
-      <aside class="menu-aside" ref="menuAside">
+      <aside class="menu-aside" ref="menuAside" v-if="menuLocation">
         <ol class="menu-content">
           <li><router-link to="/">首页</router-link></li>
           <li>文档</li>
@@ -46,7 +46,9 @@
 
 <script lang="ts" setup>
 import TopNav from "../components/TopNav.vue";
-import { ref, watchPostEffect } from "vue";
+import { ref, watchPostEffect, inject, Ref } from "vue";
+
+const menuLocation = inject<Ref<boolean>>("menuLocation");
 
 const asideToggle = ref(true);
 const toggle = () => {
@@ -57,16 +59,20 @@ const mainContent = ref<HTMLDivElement>(null);
 const svgAsideToggle = ref();
 
 watchPostEffect(() => {
-  if (asideToggle.value === true) {
-    menuAside.value.style.left = "0";
-    mainContent.value.style.marginLeft = "170px";
-    svgAsideToggle.value.style.left = "calc(100% - 12px)";
-    svgAsideToggle.value.style.transform = "rotate(0deg)";
+  if (menuLocation.value) {
+    if (asideToggle.value === true) {
+      menuAside.value.style.left = "0";
+      mainContent.value.style.marginLeft = "170px";
+      svgAsideToggle.value.style.left = "calc(100% - 12px)";
+      svgAsideToggle.value.style.transform = "rotate(0deg)";
+    } else {
+      menuAside.value.style.left = "-170px";
+      mainContent.value.style.marginLeft = "0";
+      svgAsideToggle.value.style.left = "calc(100% + 12px)";
+      svgAsideToggle.value.style.transform = "rotate(180deg)";
+    }
   } else {
-    menuAside.value.style.left = "-170px";
     mainContent.value.style.marginLeft = "0";
-    svgAsideToggle.value.style.left = "calc(100% + 12px)";
-    svgAsideToggle.value.style.transform = "rotate(180deg)";
   }
 });
 </script>
@@ -130,11 +136,18 @@ watchPostEffect(() => {
         transition: all 0.3s;
       }
     }
-  }
-  main {
-    padding: 32px 24px 56px 56px;
-    margin-left: 170px;
-    transition: all 0.3s;
+    main {
+      padding: 32px 24px 56px 56px;
+      margin-left: 170px;
+      transition: all 0.3s;
+    }
+
+    @media (max-width: 500px) {
+      main {
+        margin-left: 0;
+        padding-left: 24px;
+      }
+    }
   }
 }
 </style>
