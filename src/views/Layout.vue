@@ -3,34 +3,7 @@
     <top-nav class="nav" />
     <div class="content">
       <aside class="menu-aside" ref="menuAside" v-if="menuLocation">
-        <ol class="menu-content">
-          <li><router-link to="/">首页</router-link></li>
-          <li>文档</li>
-          <li><router-link to="/joyful/doc/intro">介绍</router-link></li>
-          <li><router-link to="/joyful/doc/install">安装</router-link></li>
-          <li>
-            <router-link to="/joyful/doc/usage">在 SFC 中使用</router-link>
-          </li>
-          <li>组件</li>
-          <li>
-            <router-link to="/joyful/components/button"
-              >按钮 Button</router-link
-            >
-          </li>
-          <li>
-            <router-link to="/joyful/components/switch"
-              >开关 Switch</router-link
-            >
-          </li>
-          <li>
-            <router-link to="/joyful/components/dialog"
-              >对话框 Dialog</router-link
-            >
-          </li>
-          <li>
-            <router-link to="/joyful/components/tabs">标签页 Tabs</router-link>
-          </li>
-        </ol>
+        <menu-content />
         <div class="aside-toggle-button" @click="toggle" ref="svgAsideToggle">
           <svg class="icon">
             <use xlink:href="#icon-left"></use>
@@ -47,6 +20,7 @@
 <script lang="ts" setup>
 import TopNav from "../components/TopNav.vue";
 import { ref, watchPostEffect, inject, Ref } from "vue";
+import MenuContent from "../components/MenuContent.vue";
 
 const menuLocation = inject<Ref<boolean>>("menuLocation");
 
@@ -62,11 +36,11 @@ watchPostEffect(() => {
   if (menuLocation.value) {
     if (asideToggle.value === true) {
       menuAside.value.style.left = "0";
-      mainContent.value.style.marginLeft = "170px";
+      mainContent.value.style.marginLeft = "200px";
       svgAsideToggle.value.style.left = "calc(100% - 12px)";
       svgAsideToggle.value.style.transform = "rotate(0deg)";
     } else {
-      menuAside.value.style.left = "-170px";
+      menuAside.value.style.left = "-200px";
       mainContent.value.style.marginLeft = "0";
       svgAsideToggle.value.style.left = "calc(100% + 12px)";
       svgAsideToggle.value.style.transform = "rotate(180deg)";
@@ -93,32 +67,16 @@ watchPostEffect(() => {
     flex-grow: 1;
     position: relative;
     aside {
+      width: 200px;
       height: 100%;
+      border-right: 1px solid $border-color;
       flex-shrink: 0;
       position: absolute;
       top: 0;
       left: 0;
       transition: all 0.3s;
+      padding: 8px;
 
-      .menu-content {
-        display: flex;
-        flex-direction: column;
-        width: 170px;
-        border-right: 1px solid $border-color;
-        padding: 16px;
-        height: 100%;
-        > li {
-          > a {
-            display: block;
-            padding: 4px 16px;
-            text-decoration: none;
-
-            &.router-link-active {
-              background: #fff;
-            }
-          }
-        }
-      }
       .aside-toggle-button {
         border: 1px solid $border-color;
         width: 24px;
@@ -138,12 +96,9 @@ watchPostEffect(() => {
     }
     main {
       padding: 32px 24px 56px 56px;
-      margin-left: 170px;
+      margin-left: 200px;
       transition: all 0.3s;
-    }
-
-    @media (max-width: 500px) {
-      main {
+      @media (max-width: 500px) {
         margin-left: 0;
         padding-left: 24px;
       }
