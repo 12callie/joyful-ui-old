@@ -64,6 +64,10 @@ $theme-color: #18a058;
   border-radius: calc($h / 2);
   position: relative;
   transition: all 250ms;
+
+  &:focus {
+    outline: none;
+  }
   .j-switch-circle {
     width: $h2;
     height: $h2;
