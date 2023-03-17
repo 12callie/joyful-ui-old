@@ -1,5 +1,15 @@
 <template>
-  <div>介绍</div>
+  <article>
+    <h1>介绍</h1>
+    <p>Joyful UI 是一个 Vue3 的组件库。</p>
+    <br />
+    <p>要了解如何安装，参见<a href="/joyful/doc/install">安装</a>。</p>
+    <br />
+    <p>
+      这个项目的初衷并不是真的要做出一个很牛的组件库，完全是出于学习 Vue3
+      的新特性而写。所以我要再次强调，不要将此 UI 库用于生产环境。
+    </p>
+  </article>
 </template>
 
 <script lang="ts">
@@ -8,4 +18,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "../assets/styles/common.scss";
+h1 {
+  margin-bottom: 16px;
+}
+a {
+  color: $theme-color;
+}
+</style>

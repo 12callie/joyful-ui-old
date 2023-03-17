@@ -4,8 +4,11 @@
   <div class="content">
     <h1>Joyful UI</h1>
     <p>一个 Vue 3 组件库</p>
+    <br />
     <p>提供了一些常用的组件，使用 TypeScript</p>
-    <p>有点意思</p>
+    <br />
+
+    <p>本组件库只是用于学习 Vue3，为避免不必要的麻烦，请不要在生产环境中使用</p>
     <div class="actions">
       <Button><a href="http://github.com">GitHub</a></Button>
       <router-link to="/joyful/doc/install"
