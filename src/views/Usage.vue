@@ -1,11 +1,10 @@
 <template>
-  <article>
+  <article class="markdown-body">
     <h1>在 SFC 中使用</h1>
     <p>
       请先<a href="/joyful/doc/install">安装</a
       >本组件库，然后你就可以直接导入组件并使用它。
     </p>
-    <br />
     <p>代码示例：</p>
     <pre>
 &lt;template&gt;
