@@ -1,23 +1,25 @@
 <template>
   <div class="j-tabs">
-    <div class="j-tabs-nav" ref="container">
-      <div
-        class="j-tabs-nav-item"
-        :class="{ selected: selected === t }"
-        v-for="(t, index) in titles"
-        :key="index"
-        @click="selectTitle(t)"
-        :ref="
-          (el) => {
-            if (t === selected) {
-              currentTitle = el;
+    <div class="j-tabs-nav-wrapper">
+      <div class="j-tabs-nav" ref="container">
+        <div
+          class="j-tabs-nav-item"
+          :class="{ selected: selected === t }"
+          v-for="(t, index) in titles"
+          :key="index"
+          @click="selectTitle(t)"
+          :ref="
+            (el) => {
+              if (t === selected) {
+                currentTitle = el;
+              }
             }
-          }
-        "
-      >
-        {{ t }}
+          "
+        >
+          {{ t }}
+        </div>
+        <div class="j-tabs-nav-indicator" ref="indicator"></div>
       </div>
-      <div class="j-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="j-tabs-content">
       <component :is="current" :key="current.props.title" />
@@ -79,18 +81,26 @@ $border-color: rgb(239, 239, 245);
 $theme-color: #18a058;
 .j-tabs {
   &-nav {
-    border-bottom: 1px solid $border-color;
     display: flex;
     flex-direction: row;
     position: relative;
 
-    &-item {
-      &:nth-child(1) {
-        margin-left: 0;
+    &-wrapper {
+      border-bottom: 1px solid $border-color;
+
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        display: none;
       }
+    }
+    &-item {
       padding: 8px 0;
       margin: 0 16px;
       cursor: pointer;
+      white-space: nowrap;
+      &:nth-child(1) {
+        margin-left: 0;
+      }
       &:hover,
       &.selected {
         color: $theme-color;

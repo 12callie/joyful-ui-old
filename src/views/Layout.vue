@@ -95,6 +95,8 @@ watchPostEffect(() => {
       }
     }
     main {
+      flex-grow: 1;
+      overflow: hidden;
       padding: 32px 24px 56px 56px;
       margin-left: 200px;
       transition: all 0.3s;
