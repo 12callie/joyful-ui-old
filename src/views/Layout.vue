@@ -71,9 +71,8 @@ watchPostEffect(() => {
       height: 100%;
       border-right: 1px solid $border-color;
       flex-shrink: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
+      position: fixed;
+      top: 64px;
       transition: all 0.3s;
       padding: 8px;
 
@@ -98,6 +97,7 @@ watchPostEffect(() => {
       flex-grow: 1;
       overflow: hidden;
       padding: 32px 24px 56px 56px;
+      margin-top: 64px;
       margin-left: 200px;
       transition: all 0.3s;
       @media (max-width: 500px) {

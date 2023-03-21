@@ -41,7 +41,12 @@ const toggleMenu = () => {
 @import "../assets/styles/common.scss";
 .top-nav {
   border-bottom: 1px solid $border-color;
-  position: relative;
+  background: #fff;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1;
 
   .nav-content {
     display: flex;
