@@ -3,25 +3,35 @@
     <h1>按钮 Button</h1>
     <p>按钮用来触发一些操作。</p>
     <h2>演示</h2>
-    <hr />
-    <div>
-      <div>基础用法</div>
-      <p>
-        按钮的 <code>type</code> 分别为
-        <code>default</code
-        >、<code>primary</code>、<code>info</code>、<code>success</code>、<code
-          >warning</code
-        >
-        和 <code>error</code>。
-      </p>
-      <Button>Default</Button>
-      <Button theme="primary">Primary</Button>
-      <Button theme="info">Info</Button>
-      <Button theme="success">Success</Button>
-      <Button theme="warning">Warning</Button>
-      <Button theme="error">Error</Button>
+    <div class="demo">
+      <div class="demo-title">
+        <div>基础用法</div>
+        <div class="code-toggle">
+          <svg class="icon" @click="codeToggle">
+            <use xlink:href="#icon-toggle"></use>
+          </svg>
+        </div>
+      </div>
+      <div class="demo-content">
+        <p class="demo-description">
+          按钮的 <code>type</code> 分别为
+          <code>default</code
+          >、<code>primary</code>、<code>info</code>、<code>success</code>、<code
+            >warning</code
+          >
+          和 <code>error</code>。
+        </p>
+        <Button>Default</Button>
+        <Button theme="primary">Primary</Button>
+        <Button theme="info">Info</Button>
+        <Button theme="success">Success</Button>
+        <Button theme="warning">Warning</Button>
+        <Button theme="error">Error</Button>
+      </div>
+      <div class="demo-code" v-if="code">
+        <pre>import Button from "../lib/Button.vue";</pre>
+      </div>
     </div>
-    <hr />
     <div>
       <div>虚线按钮</div>
       <p>使用 <code>dashed</code> 来使用虚线按钮。</p>
@@ -77,4 +87,40 @@ function handleClick() {
     loadingRef.value = false;
   }, 2000);
 }
+
+const code = ref(false);
+const codeToggle = () => {
+  code.value = !code.value;
+};
 </script>
+
+<style lang="scss" scoped>
+@import "../assets/styles/common.scss";
+.demo {
+  border: 1px solid $border-color;
+  margin-bottom: 16px;
+
+  .demo-title {
+    display: flex;
+    margin: 20px 24px 12px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .code-toggle {
+      cursor: pointer;
+    }
+  }
+  .demo-content {
+    margin: 0 24px 12px;
+
+    .demo-description {
+      font-size: 14px;
+    }
+  }
+
+  .demo-code {
+    border-top: 1px solid $border-color;
+    padding: 20px 24px;
+  }
+}
+</style>
