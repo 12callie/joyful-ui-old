@@ -17,9 +17,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  margin-bottom: 16px;
-}
+@import "../assets/styles/docStyle.scss";
+
 .notice {
   font-size: 14px;
   padding: 0 12px;

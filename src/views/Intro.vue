@@ -17,11 +17,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/styles/common.scss";
-h1 {
-  margin-bottom: 16px;
-}
-a {
-  color: $theme-color;
-}
+@import "../assets/styles/docStyle.scss";
 </style>
