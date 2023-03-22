@@ -22,12 +22,7 @@
             >
             和 <code>error</code>。
           </p>
-          <Button>Default</Button>
-          <Button theme="primary">Primary</Button>
-          <Button theme="info">Info</Button>
-          <Button theme="success">Success</Button>
-          <Button theme="warning">Warning</Button>
-          <Button theme="error">Error</Button>
+          <Button1Demo />
         </div>
         <div class="demo-code" v-if="code">
           <pre>import Button from "../lib/Button.vue";</pre>
@@ -47,12 +42,7 @@
           <p class="demo-description">
             使用 <code>dashed</code> 来使用虚线按钮。
           </p>
-          <Button dashed>Default</Button>
-          <Button dashed theme="primary">Primary</Button>
-          <Button dashed theme="info">Info</Button>
-          <Button dashed theme="success">Success</Button>
-          <Button dashed theme="warning">Warning</Button>
-          <Button dashed theme="error">Error</Button>
+          <Button2Demo />
         </div>
         <div class="demo-code" v-if="code">
           <pre>import Button from "../lib/Button.vue";</pre>
@@ -73,10 +63,7 @@
             有 <code>tiny</code>、<code>small</code>、<code>medium</code> 和
             <code>large</code> 尺寸。
           </p>
-          <Button size="tiny">tiny</Button>
-          <Button size="small">small</Button>
-          <Button size="medium">medium</Button>
-          <Button size="large">large</Button>
+          <Button3Demo />
         </div>
         <div class="demo-code" v-if="code">
           <pre>import Button from "../lib/Button.vue";</pre>
@@ -94,7 +81,7 @@
         </div>
         <div class="demo-content">
           <p class="demo-description">长得就像文本。</p>
-          <Button text>这是一个文本按钮</Button>
+          <Button4Demo />
         </div>
         <div class="demo-code" v-if="code">
           <pre>import Button from "../lib/Button.vue";</pre>
@@ -112,7 +99,7 @@
         </div>
         <div class="demo-content">
           <p class="demo-description">按钮可以被禁用。</p>
-          <Button disabled>不许点</Button>
+          <Button5Demo />
         </div>
         <div class="demo-code" v-if="code">
           <pre>import Button from "../lib/Button.vue";</pre>
@@ -130,8 +117,7 @@
         </div>
         <div class="demo-content">
           <p class="demo-description">按钮有加载状态。</p>
-          <Button class="j-loadingButton" loading>加载中</Button>
-          <Button :loading="loadingRef" @click="handleClick">点我</Button>
+          <Button6Demo />
         </div>
         <div class="demo-code" v-if="code">
           <pre>import Button from "../lib/Button.vue";</pre>
@@ -142,15 +128,13 @@
 </template>
 
 <script lang="ts" setup>
+import Button1Demo from "../components/Button1.demo.vue";
+import Button2Demo from "../components/Button2.demo.vue";
+import Button3Demo from "../components/Button3.demo.vue";
+import Button4Demo from "../components/Button4.demo.vue";
+import Button5Demo from "../components/Button5.demo.vue";
+import Button6Demo from "../components/Button6.demo.vue";
 import { ref } from "vue";
-import Button from "../lib/Button.vue";
-const loadingRef = ref(false);
-function handleClick() {
-  loadingRef.value = true;
-  setTimeout(() => {
-    loadingRef.value = false;
-  }, 2000);
-}
 
 const code = ref(false);
 const afterContent = ref("显示代码");
