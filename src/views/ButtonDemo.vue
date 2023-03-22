@@ -7,7 +7,7 @@
       <div class="demo">
         <div class="demo-title">
           <div>基础用法</div>
-          <div class="code-toggle">
+          <div class="code-toggle" :data-attr="afterContent">
             <svg class="icon" @click="codeToggle">
               <use xlink:href="#icon-toggle"></use>
             </svg>
@@ -37,7 +37,7 @@
       <div class="demo">
         <div class="demo-title">
           <div>虚线按钮</div>
-          <div class="code-toggle">
+          <div class="code-toggle" :data-attr="afterContent">
             <svg class="icon" @click="codeToggle">
               <use xlink:href="#icon-toggle"></use>
             </svg>
@@ -62,7 +62,7 @@
       <div class="demo">
         <div class="demo-title">
           <div>尺寸</div>
-          <div class="code-toggle">
+          <div class="code-toggle" :data-attr="afterContent">
             <svg class="icon" @click="codeToggle">
               <use xlink:href="#icon-toggle"></use>
             </svg>
@@ -86,7 +86,7 @@
       <div class="demo">
         <div class="demo-title">
           <div>文本按钮</div>
-          <div class="code-toggle">
+          <div class="code-toggle" :data-attr="afterContent">
             <svg class="icon" @click="codeToggle">
               <use xlink:href="#icon-toggle"></use>
             </svg>
@@ -104,7 +104,7 @@
       <div class="demo">
         <div class="demo-title">
           <div>禁用</div>
-          <div class="code-toggle">
+          <div class="code-toggle" :data-attr="afterContent">
             <svg class="icon" @click="codeToggle">
               <use xlink:href="#icon-toggle"></use>
             </svg>
@@ -122,7 +122,7 @@
       <div class="demo">
         <div class="demo-title">
           <div>加载中</div>
-          <div class="code-toggle">
+          <div class="code-toggle" :data-attr="afterContent">
             <svg class="icon" @click="codeToggle">
               <use xlink:href="#icon-toggle"></use>
             </svg>
@@ -153,8 +153,15 @@ function handleClick() {
 }
 
 const code = ref(false);
+const afterContent = ref("显示代码");
+
 const codeToggle = () => {
   code.value = !code.value;
+  if (code.value) {
+    afterContent.value = "隐藏代码";
+  } else {
+    afterContent.value = "显示代码";
+  }
 };
 </script>
 
@@ -180,6 +187,22 @@ const codeToggle = () => {
     align-items: center;
     .code-toggle {
       cursor: pointer;
+      position: relative;
+      &:hover:after {
+        position: absolute;
+        right: -28px;
+        bottom: 30px;
+        padding: 8px 12px;
+        background-color: #000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+        color: #fff;
+        border-radius: 5px;
+        content: attr(data-attr);
+        z-index: 2;
+        font-size: 12px;
+        width: 72px;
+        vertical-align: middle;
+      }
     }
   }
   .demo-content {
